@@ -1,17 +1,12 @@
 [
   {
-    "label": "Debug current C/C++ file (gcc -> CodeLLDB)",
+    "label": "Debug C file",
     "build": {
-      "command": "sh",
-      "args": [
-        "-c",
-        "mkdir -p \"$ZED_WORKTREE_ROOT/build\" && gcc \"$ZED_FILE\" -g -o \"$ZED_WORKTREE_ROOT/build/$ZED_STEM\""
-      ],
-      "cwd": "$ZED_WORKTREE_ROOT",
-      "show_summary": true,
-      "show_command": true
+      "command": "gcc",
+      "args": ["-g", "${ZED_FILE}", "-o", "${ZED_DIRNAME}/${ZED_STEM}.out"],
+      "cwd": "${ZED_WORKTREE_ROOT}"
     },
-    "program": "$ZED_WORKTREE_ROOT/build/$ZED_STEM",
+    "program": "${ZED_DIRNAME}/${ZED_STEM}.out",
     "request": "launch",
     "adapter": "CodeLLDB"
   }
